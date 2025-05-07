@@ -29,24 +29,26 @@
     <main class="mdl-layout__content">
       <div class="right-image">
         <img src="./images/natural-numbers.jpg" alt="natural numbers" />
-        <div>
-      <div>Enter a value for n:</div>
-        </div>
-        <br />
-        <form action="answer.php" method="GET">
-          <!-- Simple Textfield -->
-      <div class="mdl-textfield mdl-js-textfield">
-        <input class="mdl-textfield__input" type="number" pattern="-?[0-9]*(\.[0-9]+)?" name= "nValue" id="nValue" />
-        <label class="mdl-textfield__label" for="nValue">Number ...</label>
-        <span class="mdl-textfield__error">Input is not a number!</span>
       </div>
-      <br />
-      <!-- Accent-colored raised button with ripple -->
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-        type="submit">
-        Show cost
-      </button>
-      </form>
+      <div class="page-content-php">
+        <div id="user-info">
+          <?php
+          //input
+          $nValue = $_GET["nValue"];
+          $text = "";
+          $number = 0;
+          // process
+          for ($naturalNumber = 1; $naturalNumber <= $nValue; $naturalNumber++) {
+            $number += $naturalNumber;
+          }
+
+          $text = "The sum of natural numbers is " . $number . "<br>";
+          echo $text;
+          ?>
+          <div class="page-content-answer">
+            <a href="./index.php">Return</a>
+          </div>
+        </div>
     </main>
   </div>
 </body>
